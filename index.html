@@ -1,83 +1,541 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
-<meta name="description" content="Beyond the Coordinates — an invitation to celebrate Isaac Kwesi Alavi's MSc Geographic Information Systems graduation at the University of Aberdeen.">
-<title>Beyond the Coordinates — An Alavi Graduation Experience</title>
-<style>
-:root{--navy:#0b1f33;--navy2:#123653;--green:#3d8b68;--mint:#cfe8dc;--paper:#f7f8f4;--ink:#152b3b;--muted:#637482;--gold:#d6b76b;--line:#dce5df;--white:#fff;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6}a{color:inherit}button{font:inherit}.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:10px;z-index:20}.skip:focus{left:8px}.topbar{position:sticky;top:0;z-index:10;background:rgba(11,31,51,.95);backdrop-filter:blur(12px);color:white;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(18px,5vw,64px);gap:16px}.brand{font-family:var(--serif);font-size:1rem;letter-spacing:.04em}.nav{display:flex;gap:clamp(10px,2vw,28px);font-size:.82rem}.nav a{text-decoration:none;color:#e3eee8}.nav a:hover,.nav a:focus{text-decoration:underline;text-underline-offset:5px}.hero{min-height:92svh;background:radial-gradient(circle at 82% 15%,#24516a 0,transparent 34%),linear-gradient(135deg,var(--navy),#102d43 65%,#174b43);color:white;position:relative;overflow:hidden;display:grid;place-items:center;padding:72px 20px 90px}.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(207,232,220,.14);border-radius:50%;width:80vw;height:80vw;max-width:900px;max-height:900px;right:-28%;top:-42%}.hero:after{width:60vw;height:60vw;right:-17%;top:-30%}.hero-inner{width:min(100%,920px);position:relative;z-index:1;text-align:center}.eyebrow{letter-spacing:.24em;text-transform:uppercase;font-size:.7rem;color:#b9d9c9;font-weight:700}.hero h1{font:clamp(2.8rem,8vw,6.8rem)/.98 var(--serif);font-weight:400;letter-spacing:-.045em;margin:20px 0}.hero h1 em{color:#b6dec8;font-style:italic}.hero-sub{font-size:clamp(1rem,2.2vw,1.25rem);color:#e1ece6;max-width:620px;margin:0 auto 28px}.name{font:clamp(1.2rem,3vw,1.8rem) var(--serif);letter-spacing:.06em;margin:28px 0 4px}.degree{font-size:.88rem;color:#c4d8d0;letter-spacing:.08em;text-transform:uppercase}.reveal-btn,.action{border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:13px 22px;background:var(--green);color:white;cursor:pointer;font-weight:650;transition:transform .2s,background .2s}.reveal-btn:hover,.action:hover{transform:translateY(-2px);background:#4d9c79}.reveal-card{margin:34px auto 0;max-width:620px;padding:24px 26px;border:1px solid rgba(255,255,255,.25);border-radius:20px;background:rgba(255,255,255,.08);backdrop-filter:blur(8px);opacity:0;transform:translateY(16px);max-height:0;overflow:hidden;transition:opacity .6s,transform .6s,max-height .7s,padding .4s}.reveal-card.open{opacity:1;transform:none;max-height:300px}.reveal-card p{margin:0;color:#edf5f0}.map-art{position:absolute;inset:auto 0 0;height:180px;opacity:.6;pointer-events:none}.map-art svg{width:100%;height:100%}.map-line{stroke:#8ac5a5;stroke-width:2;stroke-dasharray:7 8;fill:none;animation:dash 18s linear infinite}.map-grid{stroke:#b7d9c9;stroke-opacity:.17;fill:none;stroke-width:1}.pin-pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.2s infinite}@keyframes dash{to{stroke-dashoffset:-300}}@keyframes pulse{50%{opacity:.35;transform:scale(1.45)}}.section{padding:92px 20px}.wrap{width:min(1080px,100%);margin:auto}.section-kicker{color:var(--green);text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;font-weight:800}.section h2{font:clamp(2.2rem,5vw,4rem)/1.05 var(--serif);font-weight:400;color:var(--navy);margin:12px 0 18px;letter-spacing:-.03em}.lead{max-width:680px;color:var(--muted);font-size:1.05rem}.journey{background:#fff}.journey-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center;margin-top:44px}.photo-placeholder{min-height:330px;border-radius:24px;background:linear-gradient(145deg,#dce9e1,#eef2ec);border:1px dashed #9bb8a7;display:grid;place-items:center;text-align:center;padding:28px;color:#466655;position:relative;overflow:hidden}.photo-placeholder:before{content:"";position:absolute;inset:18px;border:1px solid rgba(61,139,104,.25);border-radius:16px}.photo-placeholder strong{display:block;font:1.6rem var(--serif)}.photo-placeholder small{display:block;margin-top:8px;max-width:240px}.journey-photo{margin:0;min-width:0}.journey-photo img{display:block;width:100%;height:auto;max-height:520px;object-fit:contain;background:#f1f3f4;border:1px solid #dce5ea;border-radius:20px;box-shadow:0 18px 48px rgba(11,31,51,.12)}.journey-photo figcaption{margin:12px 4px 0;color:#637482;font-size:.82rem;letter-spacing:.02em}.map-pin{cursor:pointer;transform-origin:center;transform-box:fill-box}.map-pin:focus{outline:none;filter:drop-shadow(0 0 5px #3d8b68)}.journey-copy p{color:#526575}.quote{font:italic 1.35rem/1.5 var(--serif);color:var(--navy);border-left:3px solid var(--green);padding-left:20px;margin:26px 0}.day{background:var(--paper)}.day-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;margin-top:42px}.event-card{background:white;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,38px);box-shadow:0 16px 45px rgba(14,40,55,.06)}.date-large{font:clamp(2.5rem,6vw,4.5rem)/.95 var(--serif);color:var(--navy);margin:12px 0}.event-meta{display:flex;gap:12px;align-items:flex-start;margin:20px 0}.event-meta .symbol{width:38px;height:38px;border-radius:12px;background:#e5f1e9;display:grid;place-items:center;flex:none;color:var(--green)}.event-meta b{display:block;color:var(--navy)}.event-meta span{color:var(--muted);font-size:.92rem}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:26px 0}.countbox{background:var(--navy);color:white;border-radius:14px;padding:14px 6px;text-align:center}.countbox strong{display:block;font:clamp(1.35rem,3vw,2rem) var(--serif)}.countbox small{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#c6dbd0}.count-note{font-size:.8rem;color:var(--muted)}.map-panel{background:#e8efe9;border-radius:24px;overflow:hidden;min-height:360px;position:relative;border:1px solid #d4e1d7}.map-panel svg{width:100%;height:100%;min-height:360px;display:block}.map-label{font:12px var(--sans);fill:#315345}.map-pin{fill:var(--green);stroke:white;stroke-width:3}.map-panel-caption{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(255,255,255,.92);border-radius:14px;padding:12px 16px;font-size:.82rem;color:#405b4b}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.action{display:inline-flex;text-decoration:none;align-items:center;justify-content:center;background:var(--navy);border:0;font-size:.88rem}.action.secondary{background:white;color:var(--navy);border:1px solid var(--line)}.celebration{background:var(--navy);color:white;position:relative;overflow:hidden}.celebration h2{color:white}.celebration .lead{color:#c6d8d0}.celebrate-card{margin-top:34px;padding:clamp(24px,4vw,42px);border:1px solid rgba(255,255,255,.2);border-radius:24px;background:rgba(255,255,255,.06);max-width:760px}.celebrate-card h3{font:2rem var(--serif);margin:0 0 10px}.celebrate-card p{color:#d5e4dc}.tbc{display:inline-block;border:1px solid #8fc6a6;color:#c6e8d3;border-radius:999px;padding:5px 12px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}.confetti-btn{background:var(--gold);color:var(--navy);border:0}.footer{background:#071725;color:#b9c9c2;text-align:center;padding:30px 20px;font-size:.8rem}.footer strong{font:1.2rem var(--serif);color:white}.footer a{color:#d6ebdf}.confetti{position:fixed;top:-15px;width:9px;height:14px;z-index:30;pointer-events:none;animation:fall 2.8s linear forwards}@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(760deg);opacity:.2}}.progress{position:fixed;top:0;left:0;height:3px;background:#8cc6a4;width:0;z-index:20}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:760px){.nav{gap:10px;font-size:.72rem}.brand{font-size:.86rem}.journey-grid,.day-grid{grid-template-columns:1fr}.photo-placeholder{min-height:240px}.section{padding:72px 18px}.hero{min-height:90svh}.map-panel,.map-panel svg{min-height:290px}}@media(max-width:420px){.nav a:nth-child(2){display:none}.countdown{gap:6px}.countbox{padding:11px 3px}.countbox small{font-size:.56rem}.actions .action{width:100%}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">GIS research presentation slide</title>
+  <desc id="desc">A grayscale presentation slide with a map on the left and a dark findings panel on the right, matching a GIS research presentation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#efefef"/>
+      <stop offset="1" stop-color="#dfe1df"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
 
-:root{--paper:#ffffff;--ink:#0b1f33;--muted:#526579;--line:#d9e2e8}
-body{background:#fff;color:#0b1f33}
-.topbar{background:rgba(255,255,255,.96);color:#0b1f33;border-bottom:1px solid #e5ebef;box-shadow:0 4px 18px rgba(11,31,51,.04)}
-.nav a{color:#0b1f33}.brand{color:#0b1f33}
-.hero{background:radial-gradient(circle at 82% 15%,#e6f2eb 0,transparent 36%),linear-gradient(135deg,#fff 0%,#f7fbf8 58%,#edf5f0 100%);color:#0b1f33}
-.hero:before,.hero:after{border-color:rgba(11,31,51,.12)}
-.eyebrow{color:#3d8b68}.hero h1{color:#0b1f33}.hero h1 em{color:#3d8b68}
-.hero-sub{color:#43586a}.name{color:#0b1f33}.degree{color:#526579}
-.reveal-btn{background:#0b1f33;color:#fff;border-color:#0b1f33}.reveal-btn:hover{background:#174b43}
-.reveal-card{background:rgba(255,255,255,.92);border-color:#cbd9d1;box-shadow:0 12px 34px rgba(11,31,51,.08)}.reveal-card p{color:#243d50}
-.map-line{stroke:#3d8b68}.map-grid{stroke:#0b1f33;stroke-opacity:.12}.map-art{opacity:.8}
-.journey,.day,.celebration{background:#fff;color:#0b1f33}
-.section h2,.celebration h2{color:#0b1f33}.lead,.celebration .lead{color:#526579}
-.journey-copy p{color:#43586a}.quote{color:#0b1f33}
-.event-card{background:#fff;border-color:#dce5ea}.countbox{background:#0b1f33;color:#fff}.countbox small{color:#d2e3da}
-.celebrate-card{background:#f8fbf9;border:1px solid #d7e4dc;color:#0b1f33;box-shadow:0 16px 45px rgba(14,40,55,.05)}
-.celebrate-card h3{color:#0b1f33}.celebrate-card p{color:#526579}.tbc{border-color:#75a98b;color:#276c4b}
-.confetti-btn{background:#d6b76b;color:#0b1f33}.footer{background:#fff;color:#526579;border-top:1px solid #e5ebef}.footer strong{color:#0b1f33}.footer a{color:#0b1f33}
-.action{background:#0b1f33;color:#fff}.action.secondary{background:#fff;color:#0b1f33;border-color:#cbd7df}
-</style>
-</head>
-<body>
-<a class="skip" href="#journey">Skip to invitation</a><div class="progress" id="progress"></div>
-<header class="topbar"><div class="brand">ALAVI <span aria-hidden="true">·</span> 23.11.26</div><nav class="nav" aria-label="Main navigation"><a href="#journey">The Journey</a><a href="#day">The Big Day</a><a href="#celebration">The Celebration</a></nav></header>
-<main>
-<section class="hero" aria-labelledby="hero-title">
-<div class="hero-inner"><div class="eyebrow">A milestone mapped in memories</div><h1 id="hero-title">Beyond the<br><em>Coordinates</em></h1><p class="hero-sub">Some journeys are measured in miles. Others, in moments, milestones and the people who make the map meaningful.</p>
-<div class="name">Isaac Kwesi Alavi</div><div class="degree">MSc Geographic Information Systems · University of Aberdeen</div>
-<button class="reveal-btn" id="reveal" aria-expanded="false" aria-controls="reveal-card">Open your invitation <span aria-hidden="true">↗</span></button>
-<div class="reveal-card" id="reveal-card"><p>With gratitude for every step, every lesson and every helping hand, I would be delighted to have you join me as I celebrate this special milestone. Your presence would make the day even more memorable.</p></div>
-</div>
-<div class="map-art" aria-hidden="true"><svg viewBox="0 0 1200 180" preserveAspectRatio="none"><path class="map-grid" d="M0 30L1200 160M0 90L1200 20M160 0L300 180M480 0L550 180M830 0L760 180M1080 0L950 180"/><path class="map-line" d="M-20 130 C130 20 230 180 370 95 S600 30 710 110 S930 170 1050 70 S1160 55 1220 100"/><circle cx="370" cy="95" r="5" fill="#cfe8dc"/><circle cx="710" cy="110" r="5" fill="#cfe8dc"/><circle cx="1050" cy="70" r="5" fill="#cfe8dc"/></svg></div>
-</section>
-<section class="section journey" id="journey"><div class="wrap"><div class="section-kicker">Stop 01 · The Journey</div><h2>Every destination<br>has a story.</h2><p class="lead">A journey shaped by curiosity, resilience and the belief that knowledge can help us understand—and improve—the places we call home.</p>
-<div class="journey-grid"><figure class="journey-photo"><img src="assets/gis-research-presentation.svg" alt="Isaac presenting his GIS research, showing the demand model and routable network results on a presentation screen." loading="lazy"><figcaption>A moment from the research journey — presenting the GIS demand model and routable network.</figcaption></figure><div class="journey-copy"><p>From the first map to the final submission, this chapter has been about more than coordinates. It has been about asking better questions, finding patterns and seeing possibility in every landscape.</p><p>Now, a new milestone deserves to be shared with the people who have been part of the journey.</p><div class="quote">“The map is not the destination. It is a record of how far we have travelled.”</div></div></div></div></section>
-<section class="section day" id="day"><div class="wrap"><div class="section-kicker">Stop 02 · The Big Day</div><h2>One day. One proud moment.</h2><p class="lead">Please join me at the University of Aberdeen as I celebrate the completion of my MSc in Geographic Information Systems.</p>
-<div class="day-grid"><article class="event-card"><div class="section-kicker">Graduation ceremony</div><div class="date-large">23 <span style="color:var(--green)">/</span> 11 <span style="font-size:.55em">2026</span></div>
-<div class="event-meta"><div class="symbol" aria-hidden="true">▦</div><div><b>Monday, 23 November 2026</b><span>Monday afternoon</span></div></div>
-<div class="event-meta"><div class="symbol" aria-hidden="true">◷</div><div><b>1:30 PM</b><span>Ceremony start time</span></div></div>
-<div class="event-meta"><div class="symbol" aria-hidden="true">⌖</div><div><b>Elphinstone Hall</b><span>University of Aberdeen, Aberdeen, Scotland</span></div></div>
-<div class="countdown" aria-label="Countdown to graduation"><div class="countbox"><strong id="days">—</strong><small>Days</small></div><div class="countbox"><strong id="hours">—</strong><small>Hours</small></div><div class="countbox"><strong id="minutes">—</strong><small>Minutes</small></div><div class="countbox"><strong id="seconds">—</strong><small>Seconds</small></div></div><div class="count-note" id="count-note" aria-live="polite">Counting down to the ceremony · UK local time</div>
-<div class="actions"><a class="action" href="https://www.google.com/maps/search/?api=1&query=Elphinstone+Hall%2C+University+of+Aberdeen" target="_blank" rel="noopener">Get directions ↗</a><button class="action secondary" id="calendar">Add to calendar +</button></div>
-</article>
-<div class="map-panel" role="img" aria-label="Illustrated map route ending at Elphinstone Hall, University of Aberdeen"><svg viewBox="0 0 520 430" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="520" height="430" fill="#e8efe9"/><g stroke="#c5d7c9" stroke-width="2" fill="none"><path d="M-20 70L550 330M-20 180L550 80M20 -20L200 450M160 -20L360 450M350 -20L510 450M-20 370L550 220"/><path d="M0 120Q100 40 200 130T520 120M0 300Q100 230 210 310T520 300"/></g><g fill="#d4e2d7" stroke="#b4cbb9"><path d="M30 35h95v55H30zM340 30h125v70H340zM40 330h120v55H40zM365 335h110v55H365z"/></g><path d="M75 325C130 285 150 240 210 245S295 175 330 155S380 110 415 100" stroke="#3d8b68" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 9" fill="none"><animate attributeName="stroke-dashoffset" from="180" to="0" dur="7s" repeatCount="indefinite"/></path><circle cx="75" cy="325" r="8" fill="#123653" stroke="white" stroke-width="3"/><path id="map-pin" d="M415 72c-16 0-27 12-27 27 0 20 27 48 27 48s27-28 27-48c0-15-11-27-27-27z" class="map-pin" role="button" tabindex="0" aria-label="Celebrate the graduation destination"/><circle cx="415" cy="99" r="7" fill="white"/><circle cx="415" cy="99" r="20" fill="none" stroke="#3d8b68" opacity=".7" class="pin-pulse"/><text x="42" y="355" class="map-label">THE JOURNEY</text><text x="330" y="165" class="map-label">ABERDEEN</text><text x="355" y="55" class="map-label" font-weight="700">ELPHINSTONE HALL</text><text x="28" y="24" class="map-label">57°09′ N · 2°06′ W</text></svg><div class="map-panel-caption">A destination worth celebrating. Follow the map to Elphinstone Hall, University of Aberdeen.</div></div></div></div></section>
-<section class="section celebration" id="celebration"><div class="wrap"><div class="section-kicker" style="color:#9dd2b2">Stop 03 · The Celebration</div><h2>And then, let’s celebrate.</h2><p class="lead">The ceremony is only part of the story. I would love to continue the celebration with family and friends over dinner.</p>
-<div class="celebrate-card"><span class="tbc">Details to be confirmed</span><h3>Post-ceremony celebration dinner</h3><p>Venue and time will be shared once confirmed. For now, please keep the celebration in mind—and watch this space for the next stop on the map.</p><button class="action confetti-btn" id="confetti">Celebrate this milestone ✦</button></div>
-<div class="actions" style="margin-top:28px"><a class="action" id="whatsapp" href="#" target="_blank" rel="noopener">Share on WhatsApp ↗</a><button class="action secondary" id="share">Share invitation ↗</button></div></div></section>
-</main>
-<footer class="footer"><strong>Beyond the Coordinates</strong><div>An Alavi Graduation Experience · Isaac Kwesi Alavi</div><div style="margin-top:8px">MSc Geographic Information Systems · University of Aberdeen · 23 November 2026</div></footer>
-<script>
-(() => {
- const ceremony = new Date('2026-11-23T13:30:00+00:00');
- const $ = id => document.getElementById(id);
- $('reveal').addEventListener('click', () => { const card=$('reveal-card'), opened=card.classList.toggle('open'); $('reveal').setAttribute('aria-expanded',String(opened)); $('reveal').textContent=opened?'Invitation opened ✓':'Open your invitation ↗'; });
- function tick(){let diff=ceremony.getTime()-Date.now();if(diff<=0){['days','hours','minutes','seconds'].forEach(id=>$(id).textContent='00');$('count-note').textContent='The graduation day is here—let the celebration begin!';return}const d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);$('days').textContent=d;$('hours').textContent=String(h).padStart(2,'0');$('minutes').textContent=String(m).padStart(2,'0');$('seconds').textContent=String(s).padStart(2,'0');}
- tick();setInterval(tick,1000);
- $('calendar').addEventListener('click',()=>{const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Alavi Graduation//EN','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:alavi-graduation-20261123@invitation','DTSTAMP:20261110T000000Z','DTSTART:20261123T133000','SUMMARY:Isaac Kwesi Alavi — MSc GIS Graduation','LOCATION:Elphinstone Hall, University of Aberdeen, Aberdeen, Scotland','DESCRIPTION:Celebrate Isaac Kwesi Alavi’s MSc Geographic Information Systems graduation. Post-ceremony dinner details to be confirmed.','END:VEVENT','END:VCALENDAR'].join('\r\n');const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Isaac-Alavi-Graduation.ics';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);});
- const shareText='You are invited: Beyond the Coordinates — An Alavi Graduation Experience. Join Isaac Kwesi Alavi for his MSc Geographic Information Systems graduation on Monday 23 November 2026 at 1:30 PM, Elphinstone Hall, University of Aberdeen. Post-ceremony dinner details to be confirmed.';
- $('whatsapp').href='https://wa.me/?text='+encodeURIComponent(shareText+' '+location.href);
- $('share').addEventListener('click',async()=>{try{if(navigator.share)await navigator.share({title:document.title,text:shareText,url:location.href});else if(navigator.clipboard){await navigator.clipboard.writeText(shareText+' '+location.href);$('share').textContent='Invitation copied ✓';}else{window.prompt('Copy this invitation:',shareText+' '+location.href)}}catch(e){if(e.name!=='AbortError')$('share').textContent='Sharing unavailable';}});
- const burstConfetti = (count=85) => {if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const colors=['#0b1f33','#d6b76b','#8cc6a4','#ffffff','#5e9d83','#b7d9c9'];for(let i=0;i<count;i++){const p=document.createElement('i');p.className='confetti';p.setAttribute('aria-hidden','true');p.style.left=Math.random()*100+'vw';p.style.background=colors[i%colors.length];p.style.setProperty('--drift',(Math.random()*220-110)+'px');p.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),3500)}};
- $('confetti').addEventListener('click',()=>{burstConfetti(100);});
- $('reveal').addEventListener('click',()=>burstConfetti(42));
- $('calendar').addEventListener('click',()=>burstConfetti(36));
- const mapPin=$('map-pin');if(mapPin){mapPin.addEventListener('click',()=>burstConfetti(70));mapPin.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();burstConfetti(70)}});}
- const progress=$('progress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%'}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
-})();
-</script>
-</body></html>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="34" y="60" width="370" height="580" fill="#f4f4f4" stroke="#bcbcbc" stroke-width="2"/>
+    <rect x="440" y="60" width="720" height="580" fill="#f0f0f0" stroke="#bcbcbc" stroke-width="2"/>
+  </g>
+
+  <g font-family="Georgia, serif" fill="#1d1d1d">
+    <text x="72" y="108" font-size="34" font-style="italic">Results I - demand model and network</text>
+  </g>
+
+  <g>
+    <rect x="75" y="155" width="290" height="330" fill="#eceae7" stroke="#b5b5b5"/>
+    <path d="M108 180 L345 180 L345 330 L108 330 Z" fill="none" stroke="#7e7e7e" stroke-width="1"/>
+    <g opacity="0.7" stroke="#8d8d8d" stroke-width="1">
+      <path d="M108 200H345"/>
+      <path d="M108 220H345"/>
+      <path d="M108 240H345"/>
+      <path d="M108 260H345"/>
+      <path d="M108 280H345"/>
+      <path d="M108 300H345"/>
+      <path d="M120 180V330"/>
+      <path d="M140 180V330"/>
+      <path d="M160 180V330"/>
+      <path d="M180 180V330"/>
+      <path d="M200 180V330"/>
+      <path d="M220 180V330"/>
+      <path d="M240 180V330"/>
+      <path d="M260 180V330"/>
+      <path d="M280 180V330"/>
+      <path d="M300 180V330"/>
+      <path d="M320 180V330"/>
+    </g>
+
+    <g fill="#8a8a8a">
+      <circle cx="115" cy="315" r="2"/>
+      <circle cx="130" cy="294" r="2"/>
+      <circle cx="150" cy="282" r="2"/>
+      <circle cx="168" cy="305" r="2"/>
+      <circle cx="182" cy="252" r="2"/>
+      <circle cx="205" cy="286" r="2"/>
+      <circle cx="232" cy="254" r="2"/>
+      <circle cx="250" cy="238" r="2"/>
+      <circle cx="270" cy="266" r="2"/>
+      <circle cx="200" cy="330" r="2"/>
+      <circle cx="180" cy="350" r="2"/>
+      <circle cx="150" cy="350" r="2"/>
+      <circle cx="140" cy="240" r="2"/>
+      <circle cx="210" cy="220" r="2"/>
+      <circle cx="245" cy="225" r="2"/>
+      <circle cx="272" cy="246" r="2"/>
+    </g>
+
+    <path d="M122 384 C150 360 175 356 210 370 C236 380 260 376 290 366 C308 360 321 340 330 328" fill="none" stroke="#979797" stroke-width="2" stroke-linecap="round"/>
+    <path d="M110 300 L250 250 L280 285 L220 330 Z" fill="rgba(120,120,120,0.12)" stroke="#8e8e8e" stroke-width="1.5"/>
+    <g font-family="sans-serif" font-size="11" fill="#555">
+      <text x="215" y="292">Legend</text>
+    </g>
+  </g>
+
+  <g font-family="sans-serif" fill="#3a3a3a" font-size="9">
+    <text x="80" y="520">Population 0.37</text>
+    <text x="214" y="520">Commercial 0.23</text>
+    <text x="80" y="538">Education 0.14</text>
+    <text x="214" y="538">Social 0.14</text>
+    <text x="80" y="556">Health 0.08</text>
+    <text x="214" y="556">Public service 0.04</text>
+    <text x="80" y="592">Consistency ratio 0.012.</text>
+  </g>
+
+  <g fill="#0d0d0d" font-family="Georgia, serif">
+    <text x="470" y="120" font-size="29" font-style="italic">ROUTABLE NETWORK</text>
+  </g>
+
+  <g fill="#111111" font-family="Georgia, serif">
+    <text x="470" y="184" font-size="46" font-weight="700">2,755</text>
+    <text x="604" y="184" font-size="26">bus-viable roads: filtered class-by-class;</text>
+    <text x="604" y="220" font-size="26">footways, tracks and 923 service roads</text>
+    <text x="604" y="256" font-size="26">excluded.</text>
+
+    <text x="470" y="319" font-size="42" font-weight="700">76%</text>
+    <text x="604" y="319" font-size="26">width-validated: a 74-segment imagery</text>
+    <text x="604" y="354" font-size="26">sample against a 3.5 m carriageway rule.</text>
+
+    <text x="470" y="410" font-size="42" font-weight="700">33 km/h</text>
+    <text x="604" y="410" font-size="26">test route average — 13.0 km solved in 23.3</text>
+    <text x="604" y="446" font-size="26">min, confirming the travel-time cost.</text>
+  </g>
+
+  <g>
+    <rect x="470" y="470" width="540" height="122" fill="#111111"/>
+    <text x="490" y="510" font-size="30" fill="#f5f5f5" font-family="Georgia, serif">Key data-quality finding</text>
+    <text x="490" y="548" font-size="23" fill="#f5f5f5" font-family="Georgia, serif">OSM roads were not nodded at intersections, so the network</text>
+    <text x="490" y="582" font-size="23" fill="#f5f5f5" font-family="Georgia, serif">fragmented and would not route. Feature To Line split every</text>
+    <text x="490" y="615" font-size="23" fill="#f5f5f5" font-family="Georgia, serif">crossing from 2,625 to 5,829 features to restore connectivity.</text>
+  </g>
+
+  <g>
+    <rect x="884" y="62" width="215" height="180" fill="#f6f5f3" stroke="#b6b6b6"/>
+    <circle cx="995" cy="260" r="60" fill="none" stroke="#6d6d6d" stroke-width="2"/>
+    <circle cx="995" cy="260" r="15" fill="#272727"/>
+    <g font-family="sans-serif" fill="#3d3d3d" font-size="26">
+      <text x="960" y="170">10</text>
+      <text x="1012" y="170">11</text>
+      <text x="1060" y="170">12</text>
+      <text x="1018" y="220">1</text>
+      <text x="1044" y="245">2</text>
+      <text x="1034" y="302">3</text>
+      <text x="983" y="320">4</text>
+      <text x="925" y="302">5</text>
+      <text x="910" y="245">6</text>
+      <text x="922" y="220">7</text>
+      <text x="948" y="195">8</text>
+      <text x="980" y="188">9</text>
+    </g>
+    <g stroke="#493d3d" stroke-width="2" fill="none">
+      <path d="M995 260 L995 208"/>
+      <path d="M995 260 L1038 235"/>
+    </g>
+  </g>
+
+  <g>
+    <rect x="850" y="640" width="180" height="100" fill="#dfe5d9"/>
+    <path d="M885 670 L910 685 L938 645 L970 690 L998 660" fill="none" stroke="#4b9381" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="885" cy="670" r="6" fill="#0d1924"/>
+    <circle cx="998" cy="660" r="6" fill="#0d1924"/>
+  </g>
+</svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
