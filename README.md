@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Beyond the Coordinates — invitation to celebrate Isaac Kwesi Alavi's MSc Geographic Information Systems graduation at the University of Aberdeen.">
+  <title>Beyond the Coordinates — An Alavi Graduation Experience</title>
+  <style>
+    :root {
+      --navy: #0b1f33;
+      --navy-soft: #123653;
+      --green: #3d8b68;
+      --green-soft: #dfeee8;
+      --gold: #d6b76b;
+      --paper: #f7f8f4;
+      --ink: #132b3d;
+      --muted: #586d7d;
+      --line: #dfe7eb;
+      --white: #ffffff;
+      --shadow: rgba(11, 31, 51, 0.12);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: #fff;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: #fff;
+      color: var(--ink);
+      padding: 10px 14px;
+      z-index: 100;
+      border-radius: 999px;
+    }
+    .skip:focus { left: 12px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 4px 22px rgba(11,31,51,0.04);
+    }
+    .topbar-inner, .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 16px;
+    }
+    .brand {
+      font-family: var(--serif);
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 2vw, 28px);
+      flex-wrap: wrap;
+    }
+    .nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .nav a:hover, .nav a:focus {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      opacity: 1;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 82% 15%, rgba(61,139,104,0.18) 0%, transparent 30%),
+                  linear-gradient(135deg, #ffffff 0%, #f7fbf8 54%, #edf3ef 100%);
+      color: var(--ink);
+      padding: 68px 0 96px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero:before,
+    .hero:after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(11,31,51,0.12);
+      border-radius: 50%;
+      width: 72vw;
+      height: 72vw;
+      max-width: 900px;
+      max-height: 900px;
+      right: -18%;
+      top: -28%;
+    }
+    .hero:after {
+      width: 52vw;
+      height: 52vw;
+      right: -8%;
+      top: -18%;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(960px, 100%);
+      margin: 0 auto;
+      text-align: center;
+      padding: 28px 12px 0;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 0.72rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    h1 {
+      margin: 20px auto 18px;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 400;
+      max-width: 760px;
+    }
+    h1 em {
+      color: var(--green);
+      font-style: italic;
+      font-weight: 400;
+    }
+    .hero-sub {
+      margin: 0 auto 22px;
+      color: var(--muted);
+      max-width: 650px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+    .name {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 30px 0 8px;
+    }
+    .degree {
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .action,
+    .reveal-btn,
+    .primary-btn,
+    .secondary-btn {
+      appearance: none;
+      border: 1px solid rgba(11,31,51,0.12);
+      border-radius: 999px;
+      padding: 13px 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--navy);
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 8px 22px rgba(11,31,51,0.08);
+    }
+    .action:hover, .reveal-btn:hover, .primary-btn:hover, .secondary-btn:hover {
+      transform: translateY(-2px);
+      background: var(--navy-soft);
+    }
+    .secondary-btn {
+      background: #fff;
+      color: var(--navy);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+    .reveal-card {
+      max-width: 640px;
+      margin: 30px auto 0;
+      padding: 0 24px;
+      border: 1px solid rgba(11,31,51,0.08);
+      background: rgba(255,255,255,0.78);
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(11,31,51,0.08);
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.55s ease, padding 0.5s ease;
+    }
+    .reveal-card.open {
+      max-height: 260px;
+      opacity: 1;
+      transform: translateY(0);
+      padding: 22px 24px;
+    }
+    .reveal-card p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+    .map-art {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 160px;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .map-art svg { width: 100%; height: 100%; display: block; }
+    .map-grid { stroke: rgba(11,31,51,0.12); fill: none; stroke-width: 1.1; }
+    .map-line { stroke: var(--green); stroke-width: 2.2; stroke-dasharray: 8 8; fill: none; animation: dash 18s linear infinite; }
+    .pin-pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.2s ease-in-out infinite; }
+    @keyframes dash { to { stroke-dashoffset: -300; } }
+    @keyframes pulse { 50% { opacity: 0.35; transform: scale(1.45); } }
+
+    .section {
+      padding: 88px 0;
+    }
+    .section-kicker {
+      color: var(--green);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-weight: 800;
+    }
+    h2 {
+      margin: 12px 0 16px;
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      line-height: 1.02;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+    }
+    .lead {
+      margin: 0;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .journey {
+      background: #fff;
+    }
+    .journey-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 42px;
+      align-items: center;
+    }
+    .journey-photo {
+      margin: 0;
+    }
+    .journey-photo img {
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: #f1f4f2;
+      box-shadow: 0 18px 48px rgba(11,31,51,0.12);
+      display: block;
+    }
+    .journey-photo figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+    }
+    .journey-copy {
+      display: grid;
+      gap: 18px;
+    }
+    .journey-copy p {
+      margin: 0;
+      color: #43586a;
+      font-size: 1rem;
+    }
+    .quote {
+      margin: 0;
+      padding-left: 18px;
+      border-left: 3px solid var(--green);
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1.5;
+      color: var(--ink);
+      font-style: italic;
+    }
+
+    .day {
+      background: #fafcfb;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .day-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+    .event-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 24px;
+      padding: clamp(24px, 4vw, 38px);
+      box-shadow: 0 16px 42px rgba(14, 40, 55, 0.06);
+    }
+    .date-large {
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 5vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin: 16px 0 18px;
+      color: var(--ink);
+    }
+    .event-meta {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 18px 0;
+    }
+    .event-meta .symbol {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: #e9f3ee;
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .event-meta b {
+      display: block;
+      color: var(--ink);
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+    .event-meta span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 10px;
+      margin: 26px 0 18px;
+    }
+    .countbox {
+      padding: 16px 8px 12px;
+      border-radius: 14px;
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+    }
+    .countbox strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .countbox small {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #d6eae0;
+    }
+    .count-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .map-panel {
+      position: relative;
+      border-radius: 24px;
+      border: 1px solid #d4e1d7;
+      overflow: hidden;
+      background: #eaf0eb;
+      min-height: 360px;
+    }
+    .map-panel svg {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      display: block;
+    }
+    .map-label { font: 12px var(--sans); fill: #295244; }
+    .map-pin { fill: var(--green); stroke: #fff; stroke-width: 3; }
+    .map-panel-caption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      background: rgba(255,255,255,0.92);
+      color: #405b4b;
+      font-size: 0.8rem;
+      border-radius: 14px;
+      padding: 12px 16px;
+    }
+
+    .celebration {
+      background: var(--navy);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .celebration:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent 42%);
+      pointer-events: none;
+    }
+    .celebration .wrap {
+      position: relative;
+      z-index: 1;
+    }
+    .celebration h2,
+    .celebration .section-kicker {
+      color: #fff;
+    }
+    .celebration .lead {
+      color: #c7d8d1;
+    }
+    .celebrate-card {
+      margin-top: 34px;
+      max-width: 760px;
+      padding: clamp(24px, 4vw, 42px);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.12);
+    }
+    .tbc {
+      display: inline-block;
+      border: 1px solid rgba(145,210,175,0.9);
+      color: #bfe9d2;
+      border-radius: 999px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+    .celebrate-card h3 {
+      margin: 14px 0 10px;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.08;
+      font-weight: 400;
+      color: #fff;
+    }
+    .celebrate-card p {
+      margin: 0;
+      color: #dfece5;
+      max-width: 620px;
+    }
+    .rsvp-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+    .rsvp-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      padding: 22px 20px;
+    }
+    .rsvp-card .label {
+      color: #c7d8d1;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .rsvp-card strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .rsvp-card p {
+      margin: 0;
+      color: #dfece5;
+    }
+
+    .footer {
+      background: #fff;
+      color: var(--muted);
+      padding: 28px 0 38px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+    .footer strong {
+      display: block;
+      font-family: var(--serif);
+      color: var(--ink);
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .confetti {
+      position: fixed;
+      top: -15px;
+      width: 10px;
+      height: 16px;
+      z-index: 30;
+      pointer-events: none;
+      border-radius: 2px;
+      animation: fall 2.8s linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translate3d(var(--drift), 110vh, 0) rotate(760deg);
+        opacity: 0.2;
+      }
+    }
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--green);
+      z-index: 30;
+    }
+
+    @media (max-width: 900px) {
+      .journey-grid,
+      .day-grid,
+      .rsvp-grid {
+        grid-template-columns: 1fr;
+      }
+      .rsvp-grid { gap: 16px; }
+      .map-panel, .map-panel svg { min-height: 290px; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 92px;
+        padding: 12px 0;
+      }
+      .nav {
+        justify-content: center;
+      }
+      .section { padding: 72px 0; }
+      .hero { padding-top: 56px; }
+      .actions {
+        flex-direction: column;
+      }
+      .action, .primary-btn, .secondary-btn, .reveal-btn {
+        width: 100%;
+      }
+      .countdown {
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#journey">Skip to invitation</a>
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Alavi · 23.11.26</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#journey">The Journey</a>
+        <a href="#day">The Big Day</a>
+        <a href="#celebration">The Celebration</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="eyebrow">A milestone mapped in memories</div>
+        <h1 id="hero-title">Beyond the<br><em>Coordinates</em></h1>
+        <p class="hero-sub">Some journeys are measured in miles. Others, in moments, milestones and the people who make the map meaningful.</p>
+        <div class="name">Isaac Kwesi Alavi</div>
+        <div class="degree">MSc Geographic Information Systems · University of Aberdeen</div>
+
+        <div class="actions">
+          <button class="reveal-btn" id="reveal" aria-expanded="false" aria-controls="reveal-card">Open your invitation <span aria-hidden="true">↗</span></button>
+        </div>
+
+        <div class="reveal-card" id="reveal-card">
+          <p>With gratitude for every step, every lesson and every helping hand, I would be delighted to have you join me as I celebrate this special milestone. Your presence would make the day even more memorable.</p>
+        </div>
+      </div>
+
+      <div class="map-art" aria-hidden="true">
+        <svg viewBox="0 0 1200 180" preserveAspectRatio="none">
+          <path class="map-grid" d="M0 30L1200 160M0 90L1200 20M160 0L300 180M480 0L550 180M830 0L760 180M1080 0L950 180"/>
+          <path class="map-line" d="M-20 130 C130 20 230 180 370 95 S600 30 710 110 S930 170 1050 70 S1160 55 1220 100"/>
+          <circle cx="370" cy="95" r="5" fill="#cfe8dc"/>
+          <circle cx="710" cy="110" r="5" fill="#cfe8dc"/>
+          <circle cx="1050" cy="70" r="5" fill="#cfe8dc"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section journey" id="journey">
+      <div class="wrap">
+        <div class="section-kicker">Stop 01 · The Journey</div>
+        <h2>Every destination<br>has a story.</h2>
+        <p class="lead">A journey shaped by curiosity, resilience and the belief that knowledge can help us understand—and improve—the places we call home.</p>
+
+        <div class="journey-grid">
+          <figure class="journey-photo">
+            <img src="assets/gis-research-presentation.svg" alt="Isaac presenting his GIS research and route network results on a presentation screen" loading="lazy">
+            <figcaption>A moment from the research journey — presenting the GIS demand model and routable network.</figcaption>
+          </figure>
+
+          <div class="journey-copy">
+            <p>From the first map to the final submission, this chapter has been about more than coordinates. It has been about asking better questions, finding patterns and seeing possibility in every landscape.</p>
+            <p>Now, a new milestone deserves to be shared with the people who have been part of the journey.</p>
+            <p class="quote">“The map is not the destination. It is a record of how far we have travelled.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section day" id="day">
+      <div class="wrap">
+        <div class="section-kicker">Stop 02 · The Big Day</div>
+        <h2>One day. One proud moment.</h2>
+        <p class="lead">Please join me at the University of Aberdeen as I celebrate the completion of my MSc in Geographic Information Systems.</p>
+
+        <div class="day-grid">
+          <article class="event-card">
+            <div class="section-kicker">Graduation ceremony</div>
+            <div class="date-large">23 <span style="color: var(--green);">/</span> 11 <span style="font-size: 0.55em;">2026</span></div>
+
+            <div class="event-meta">
+              <div class="symbol" aria-hidden="true">▦</div>
+              <div>
+                <b>Monday, 23 November 2026</b>
+                <span>Monday afternoon</span>
+              </div>
+            </div>
+
+            <div class="event-meta">
+              <div class="symbol" aria-hidden="true">◷</div>
+              <div>
+                <b>1:30 PM</b>
+                <span>Ceremony start time</span>
+              </div>
+            </div>
+
+            <div class="event-meta">
+              <div class="symbol" aria-hidden="true">⌖</div>
+              <div>
+                <b>Elphinstone Hall</b>
+                <span>University of Aberdeen, Aberdeen, Scotland</span>
+              </div>
+            </div>
+
+            <div class="countdown" aria-label="Countdown to graduation">
+              <div class="countbox"><strong id="days">—</strong><small>Days</small></div>
+              <div class="countbox"><strong id="hours">—</strong><small>Hours</small></div>
+              <div class="countbox"><strong id="minutes">—</strong><small>Minutes</small></div>
+              <div class="countbox"><strong id="seconds">—</strong><small>Seconds</small></div>
+            </div>
+
+            <div class="count-note" id="count-note" aria-live="polite">Counting down to the ceremony · UK local time</div>
+
+            <div class="actions" style="justify-content: flex-start; margin-top: 20px;">
+              <a class="action" href="https://www.google.com/maps/search/?api=1&query=Elphinstone+Hall%2C+University+of+Aberdeen" target="_blank" rel="noopener">Get directions ↗</a>
+              <button class="secondary-btn" id="calendar">Add to calendar +</button>
+            </div>
+          </article>
+
+          <div class="map-panel" role="img" aria-label="Illustrated map route ending at Elphinstone Hall, University of Aberdeen">
+            <svg viewBox="0 0 520 430" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="520" height="430" fill="#e8efe9"/>
+              <g stroke="#c5d7c9" stroke-width="2" fill="none">
+                <path d="M-20 70L550 330M-20 180L550 80M20 -20L200 450M160 -20L360 450M350 -20L510 450M-20 370L550 220"/>
+                <path d="M0 120Q100 40 200 130T520 120M0 300Q100 230 210 310T520 300"/>
+              </g>
+              <g fill="#d4e2d7" stroke="#b4cbb9">
+                <path d="M30 35h95v55H30zM340 30h125v70H340zM40 330h120v55H40zM365 335h110v55H365z"/>
+              </g>
+              <path d="M75 325C130 285 150 240 210 245S295 175 330 155S380 110 415 100" stroke="#3d8b68" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 9" fill="none">
+                <animate attributeName="stroke-dashoffset" from="180" to="0" dur="7s" repeatCount="indefinite"/>
+              </path>
+              <circle cx="75" cy="325" r="8" fill="#123653" stroke="white" stroke-width="3"/>
+              <path id="map-pin" d="M415 72c-16 0-27 12-27 27 0 20 27 48 27 48s27-28 27-48c0-15-11-27-27-27z" class="map-pin" role="button" tabindex="0" aria-label="Celebrate the graduation destination"/>
+              <circle cx="415" cy="99" r="7" fill="white"/>
+              <circle cx="415" cy="99" r="20" fill="none" stroke="#3d8b68" opacity=".7" class="pin-pulse"/>
+              <text x="42" y="355" class="map-label">THE JOURNEY</text>
+              <text x="330" y="165" class="map-label">ABERDEEN</text>
+              <text x="355" y="55" class="map-label" font-weight="700">ELPHINSTONE HALL</text>
+              <text x="28" y="24" class="map-label">57°09′ N · 2°06′ W</text>
+            </svg>
+            <div class="map-panel-caption">A destination worth celebrating. Follow the map to Elphinstone Hall, University of Aberdeen.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section celebration" id="celebration">
+      <div class="wrap">
+        <div class="section-kicker">Stop 03 · The Celebration</div>
+        <h2>And then, let’s celebrate.</h2>
+        <p class="lead">The ceremony is only part of the story. I would love to continue the celebration with family and friends over dinner.</p>
+
+        <div class="celebrate-card">
+          <span class="tbc">Details to be confirmed</span>
+          <h3>Post-ceremony celebration dinner</h3>
+          <p>Venue and time will be shared once confirmed. For now, please keep the celebration in mind—and watch this space for the next stop on the map.</p>
+          <div class="actions" style="justify-content: flex-start; margin-top: 20px;">
+            <button class="action" id="confetti">Celebrate this milestone ✦</button>
+          </div>
+        </div>
+
+        <div class="rsvp-grid" id="rsvp">
+          <article class="rsvp-card">
+            <span class="label">RSVP by</span>
+            <strong>Email</strong>
+            <p>Reply to the invitation email or message me directly with your attendance details.</p>
+          </article>
+          <article class="rsvp-card">
+            <span class="label">Contact</span>
+            <strong>WhatsApp</strong>
+            <p>Use the WhatsApp share option for a quick confirmation and to spread the invitation.</p>
+          </article>
+          <article class="rsvp-card">
+            <span class="label">Venue</span>
+            <strong>To be confirmed</strong>
+            <p>Keep an eye on the invitation for the final dinner location and timing.</p>
+          </article>
+        </div>
+
+        <div class="actions" style="justify-content: flex-start; margin-top: 24px;">
+          <a class="primary-btn" href="mailto:?subject=Beyond%20the%20Coordinates%20-%20Invitation&body=You%20are%20invited..." target="_blank" rel="noopener">RSVP by email</a>
+          <a class="secondary-btn" id="whatsapp" href="#" target="_blank" rel="noopener">Share on WhatsApp ↗</a>
+          <button class="secondary-btn" id="share">Share invitation ↗</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>Beyond the Coordinates</strong>
+    <div>An Alavi Graduation Experience · Isaac Kwesi Alavi</div>
+    <div style="margin-top: 8px;">MSc Geographic Information Systems · University of Aberdeen · 23 November 2026</div>
+  </footer>
+
+  <script>
+    (() => {
+      const ceremony = new Date('2026-11-23T13:30:00+00:00');
+      const $ = (id) => document.getElementById(id);
+
+      const reveal = $('reveal');
+      const revealCard = $('reveal-card');
+      reveal.addEventListener('click', () => {
+        const opened = revealCard.classList.toggle('open');
+        reveal.setAttribute('aria-expanded', String(opened));
+        reveal.innerHTML = opened ? 'Invitation opened ✓' : 'Open your invitation <span aria-hidden="true">↗</span>';
+      });
+
+      function tick() {
+        const diff = ceremony.getTime() - Date.now();
+        if (diff <= 0) {
+          ['days','hours','minutes','seconds'].forEach((id) => $(id).textContent = '00');
+          $('count-note').textContent = 'The graduation day is here—let the celebration begin!';
+          return;
+        }
+
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+
+        $('days').textContent = d;
+        $('hours').textContent = String(h).padStart(2, '0');
+        $('minutes').textContent = String(m).padStart(2, '0');
+        $('seconds').textContent = String(s).padStart(2, '0');
+      }
+      tick();
+      setInterval(tick, 1000);
+
+      $('calendar').addEventListener('click', () => {
+        const ics = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//Alavi Graduation//EN',
+          'CALSCALE:GREGORIAN',
+          'BEGIN:VEVENT',
+          'UID:alavi-graduation-20261123@invitation',
+          'DTSTAMP:20261110T000000Z',
+          'DTSTART:20261123T133000',
+          'SUMMARY:Isaac Kwesi Alavi — MSc GIS Graduation',
+          'LOCATION:Elphinstone Hall, University of Aberdeen, Aberdeen, Scotland',
+          'DESCRIPTION:Celebrate Isaac Kwesi Alavi’s MSc Geographic Information Systems graduation. Post-ceremony dinner details to be confirmed.',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+
+        const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Isaac-Alavi-Graduation.ics';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      });
+
+      const shareText = 'You are invited: Beyond the Coordinates — An Alavi Graduation Experience. Join Isaac Kwesi Alavi for his MSc Geographic Information Systems graduation on Monday 23 November 2026 at 1:30 PM, Elphinstone Hall, University of Aberdeen. Post-ceremony dinner details to be confirmed.';
+      const primaryMailto = 'mailto:?subject=' + encodeURIComponent('Beyond the Coordinates — Graduation Invitation') + '&body=' + encodeURIComponent(shareText + '\n\n' + location.href);
+      document.querySelector('a[href="mailto:?subject=Beyond%20the%20Coordinates%20-%20Invitation&body=You%20are%20invited..."]')?.setAttribute('href', primaryMailto);
+      $('whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + location.href);
+
+      $('share').addEventListener('click', async () => {
+        try {
+          if (navigator.share) {
+            await navigator.share({
+              title: document.title,
+              text: shareText,
+              url: location.href
+            });
+            return;
+          }
+
+          if (navigator.clipboard) {
+            await navigator.clipboard.writeText(shareText + ' ' + location.href);
+            $('share').textContent = 'Invitation copied ✓';
+            return;
+          }
+
+          window.prompt('Copy this invitation:', shareText + ' ' + location.href);
+        } catch (error) {
+          if (error && error.name !== 'AbortError') {
+            $('share').textContent = 'Sharing unavailable';
+          }
+        }
+      });
+
+      const burstConfetti = (count = 85) => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const colors = ['#0b1f33', '#d6b76b', '#8cc6a4', '#ffffff', '#5e9d83', '#b7d9c9'];
+
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement('i');
+          p.className = 'confetti';
+          p.setAttribute('aria-hidden', 'true');
+          p.style.left = Math.random() * 100 + 'vw';
+          p.style.background = colors[i % colors.length];
+          p.style.setProperty('--drift', (Math.random() * 220 - 110) + 'px');
+          p.style.animationDelay = (Math.random() * 0.5) + 's';
+          document.body.appendChild(p);
+          setTimeout(() => p.remove(), 3500);
+        }
+      };
+
+      $('confetti').addEventListener('click', () => burstConfetti(100));
+      reveal.addEventListener('click', () => burstConfetti(42));
+      $('calendar').addEventListener('click', () => burstConfetti(36));
+
+      const mapPin = $('map-pin');
+      if (mapPin) {
+        mapPin.addEventListener('click', () => burstConfetti(70));
+        mapPin.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            burstConfetti(70);
+          }
+        });
+      }
+
+      const progress = $('progress');
+      function updateProgress() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const value = max > 0 ? (window.scrollY / max) * 100 : 0;
+        progress.style.width = value + '%';
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

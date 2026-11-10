@@ -1,138 +1,418 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Presentation slide summarizing GIS demand model and network results">
-  <defs>
-    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0" stop-color="#efefef"/>
-      <stop offset="1" stop-color="#dfe1df"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.12"/>
-    </filter>
-  </defs>
+# Beyond the Coordinates
 
-  <rect width="1200" height="760" fill="url(#bg)"/>
+A static graduation invitation website for Isaac Kwesi Alavi's MSc Geographic Information Systems graduation at the University of Aberdeen.
 
-  <g filter="url(#shadow)">
-    <rect x="34" y="60" width="370" height="580" fill="#f4f4f4" stroke="#bcbcbc" stroke-width="2"/>
-    <rect x="440" y="60" width="720" height="580" fill="#f0f0f0" stroke="#bcbcbc" stroke-width="2"/>
-  </g>
+## Included
 
-  <g font-family="Georgia, serif" fill="#1d1d1d">
-    <text x="70" y="114" font-size="34" font-style="italic">Results I - demand model and network</text>
-  </g>
+- `index.html` – the full invitation page
+- `assets/gis-research-presentation.svg` – local presentation artwork used in the journey section
 
-  <g>
-    <rect x="75" y="155" width="290" height="330" fill="#eceae7" stroke="#b5b5b5"/>
-    <path d="M96 445 L340 445" stroke="#ccc" stroke-width="1.5"/>
-    <path d="M96 445 L340 445" stroke="#d8d8d8" stroke-width="1.5" opacity="0.7"/>
-    <g opacity="0.75">
-      <path d="M100 180 L270 180 L270 330 L100 330 Z" fill="none" stroke="#7e7e7e" stroke-width="1"/>
-      <path d="M100 200 L270 200" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M100 220 L270 220" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M100 240 L270 240" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M100 260 L270 260" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M100 280 L270 280" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M100 300 L270 300" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M120 180 L120 330" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M140 180 L140 330" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M160 180 L160 330" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M180 180 L180 330" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M200 180 L200 330" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M220 180 L220 330" stroke="#8d8d8d" stroke-width="1"/>
-      <path d="M240 180 L240 330" stroke="#8d8d8d" stroke-width="1"/>
-    </g>
+## Local preview
 
-    <g fill="#848484">
-      <circle cx="110" cy="310" r="2"/>
-      <circle cx="130" cy="294" r="2"/>
-      <circle cx="148" cy="280" r="2"/>
-      <circle cx="162" cy="300" r="2"/>
-      <circle cx="180" cy="250" r="2"/>
-      <circle cx="210" cy="290" r="2"/>
-      <circle cx="230" cy="255" r="2"/>
-      <circle cx="245" cy="240" r="2"/>
-      <circle cx="260" cy="270" r="2"/>
-      <circle cx="200" cy="330" r="2"/>
-      <circle cx="180" cy="340" r="2"/>
-      <circle cx="150" cy="350" r="2"/>
-      <circle cx="140" cy="240" r="2"/>
-      <circle cx="210" cy="220" r="2"/>
-      <circle cx="245" cy="225" r="2"/>
-      <circle cx="270" cy="250" r="2"/>
-    </g>
+Open `index.html` directly in a browser, or serve the folder locally with a simple static server:
 
-    <path d="M122 384 C150 360 175 356 210 370 C236 380 260 376 290 366 C308 360 321 340 330 328" fill="none" stroke="#979797" stroke-width="2" stroke-linecap="round"/>
-    <path d="M108 300 L250 250 L280 285 L220 330 Z" fill="rgba(120,120,120,0.12)" stroke="#8e8e8e" stroke-width="1.5"/>
-    <g font-family="sans-serif" font-size="11" fill="#555">
-      <text x="215" y="292">Legend</text>
-    </g>
-  </g>
+```bash
+python -m http.server 8000
+```
 
-  <g font-family="sans-serif" font-size="9" fill="#3a3a3a">
-    <text x="80" y="520">Population 0.37</text>
-    <text x="214" y="520">Commercial 0.23</text>
-    <text x="80" y="538">Education 0.14</text>
-    <text x="214" y="538">Social 0.14</text>
-    <text x="80" y="556">Health 0.08</text>
-    <text x="214" y="556">Public service 0.04</text>
-    <text x="80" y="592">Consistency ratio 0.012.</text>
-  </g>
+Then visit:
 
-  <g fill="#0d0d0d" font-family="Georgia, serif">
-    <text x="470" y="120" font-size="29" font-style="italic">ROUTABLE NETWORK</text>
-  </g>
+```text
+http://localhost:8000
+```
 
-  <g fill="#1c1c1c" font-family="Georgia, serif">
-    <text x="470" y="190" font-size="46" font-weight="700">2,755</text>
-    <text x="590" y="190" font-size="26">bus-viable roads: filtered class-by-class;</text>
-    <text x="590" y="225" font-size="26">footways, tracks and 923 service roads</text>
-    <text x="590" y="260" font-size="26">excluded.</text>
+## Deployment
 
-    <text x="470" y="315" font-size="42" font-weight="700">76%</text>
-    <text x="590" y="315" font-size="26">width-validated: a 74-segment imagery</text>
-    <text x="590" y="350" font-size="26">sample against a 3.5 m carriageway rule.</text>
+The site is static and works well with:
 
-    <text x="470" y="405" font-size="42" font-weight="700">33 km/h</text>
-    <text x="590" y="405" font-size="26">test route average — 13.0 km solved in 23.3</text>
-    <text x="590" y="440" font-size="26">min, confirming the travel-time cost.</text>
-  </g>
+- Netlify
+- GitHub Pages
+- any static hosting provider
 
-  <g>
-    <rect x="470" y="470" width="540" height="110" fill="#131313"/>
-    <text x="490" y="515" font-size="30" fill="#f5f5f5" font-family="Georgia, serif">Key data-quality finding</text>
-    <text x="490" y="552" font-size="25" fill="#f5f5f5" font-family="Georgia, serif">OSM roads were not nodded at intersections, so the network</text>
-    <text x="490" y="585" font-size="25" fill="#f5f5f5" font-family="Georgia, serif">fragmented and would not route. Feature To Line split every</text>
-    <text x="490" y="618" font-size="25" fill="#f5f5f5" font-family="Georgia, serif">crossing from 2,625 to 5,829 features to restore connectivity.</text>
-  </g>
+Upload the repository contents as-is and publish the site.
 
-  <g>
-    <rect x="885" y="62" width="215" height="180" fill="#f6f5f3" stroke="#b6b6b6"/>
-    <circle cx="995" cy="260" r="60" fill="none" stroke="#6d6d6d" stroke-width="2"/>
-    <circle cx="995" cy="260" r="15" fill="#272727"/>
-    <g font-family="sans-serif" fill="#3d3d3d" font-size="26">
-      <text x="958" y="168">10</text>
-      <text x="1010" y="168">11</text>
-      <text x="1060" y="168">12</text>
-      <text x="1015" y="220">1</text>
-      <text x="1042" y="245">2</text>
-      <text x="1032" y="301">3</text>
-      <text x="983" y="319">4</text>
-      <text x="925" y="301">5</text>
-      <text x="910" y="245">6</text>
-      <text x="922" y="220">7</text>
-      <text x="948" y="195">8</text>
-      <text x="980" y="188">9</text>
-    </g>
-    <g stroke="#493d3d" stroke-width="2" fill="none">
-      <path d="M995 260 L995 208"/>
-      <path d="M995 260 L1038 235"/>
-    </g>
-  </g>
+## Notes
 
-  <g>
-    <rect x="850" y="640" width="180" height="100" fill="#dfe5d9"/>
-    <path d="M885 670 L910 685 L938 645 L970 690 L998 660" fill="none" stroke="#4b9381" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="885" cy="670" r="6" fill="#0d1924"/>
-    <circle cx="998" cy="660" r="6" fill="#0d1924"/>
-  </g>
-</svg>
+- RSVP/contact links are included as lightweight placeholders.
+- Dinner venue and time remain marked as "to be confirmed".
+- The design is intentionally minimal, elegant and mobile-friendly.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
